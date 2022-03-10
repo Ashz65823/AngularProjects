@@ -17,3 +17,10 @@ p{
     font-size: xx-large;
     font-style: italic;
 }
+.changeMe{
+    color: rgb(0, 0, 0);
+    
+}
+.afterChange{
+    color: blueviolet;
+}

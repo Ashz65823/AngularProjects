@@ -51,3 +51,8 @@ Selector of the component is the logical name written on top of the class using 
 ng generate component NameOfComponent//creates new component
 can be written as 
 ng g c NameOfComponent
+------------------------------------------------------------------------
+1. Pass data from message component to message update component
+   Data from parent to child
+2. Pass data from message update component to message component
+   Data from child to parent

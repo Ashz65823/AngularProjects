@@ -1,2 +1,43 @@
 <h1>In the heading of Message Component</h1>
 <p>message works!</p>
+<p>{{messages|json}}</p>
+<!--Json pipe-->
+<table *ngIf="messages.length>0" border="1">
+    <!--
+    ngIf is a directive given by angular which is used to show conditially
+-->
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Action</th>
+    </tr>
+    <!--ngFor is a directive given by angular
+messages is a property defing in message.component.ts file
+msg is an local variable name 
+it's a for each loop
+-->
+    <tr *ngFor="let msg of messages">
+        <!--we dont have repeat tr for each message to display when we use-->
+        <!--when you want to display all value from array -->
+        <!--tr>{{msg}}</tr-->
+        <td>{{msg.id}}</td>
+        <!--Angular pipes-->
+        <!--Angular pipes helps us to transform o/p before showing-->
+        <!--There are many pipes for string,json,currency,number
+        we can also create our own pipes(User defind pipes)
+    String pipes--lowercase,uppercase, -->
+        <td>{{msg.name | uppercase}}</td>
+        <td>
+            <input type="button" value="Delete" (click)="delete(msg.id)">&nbsp;<input type="button" value="Update"
+                (click)="update(msg.name)">
+        </td>
+    </tr>
+    <tr>
+        <!--<tr>{{messages}}-- will print all from the array<tr>-->
+        <!--To display single value from array -->
+        <td>{{messages[0].id}}</td>
+        <td>{{messages[0].name|lowercase}}</td>
+    </tr>
+</table>
+<app-message-update></app-message-update><!--Child of Message component
+becoz we are using <app-message-update></app-message-update> under message.html-->

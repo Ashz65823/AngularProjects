@@ -1,0 +1,48 @@
+<h1>Welcome to Zensar !!</h1>
+<h2>{{title}} !!</h2>
+<!--Following is string interpolation-->
+<!--which fetch data from component class-->
+<h3>
+  <app-message></app-message>
+</h3>
+<!--Following is syntax of property binding-->
+<!--Where technology is a property of component class-->
+<!--Propert binding is done using []-->
+Using property binding<input type="text" [value]="technology"><br><br>
+Using String interpolation<input type="text" value="{{technology}}">
+<br><br>
+Using String interpolation<input type="text" value="{{technology}}" disabled><br><br>
+<h3><u>String interpolation and binding</u></h3>
+<!--Following things diesn't work with interpolation as it is a string value-->
+Using property binding<input type="text" [disabled]="isOk" [value]="technology"><br><br>
+Using String interpolation<input type="text" value="{{technology}}" disabled="{{isOk}}">
+<br><br>
+<h3>Event binding</h3>
+<!--Following is the syntax for even binding-->
+<!--Dome using ()-->
+<!--Change() is a custom ,ethod in component class-->
+<input type="button" (click)="change()" Value="ClickToChange">
+<input type="button" (click)="change2()" value="Click">
+<!--Normal way of Applying Style-->
+<p style="color: green;">Normal Styling!!</p>
+<!--Binding using hardvode value-->
+<!--here yello is hard coded value-->
+<p [style.color]="'yellow'">Style binding with Hard coded value !!</p>
+<!--Binding using value of component-->
+<p [style.color]="success">Style binding with component value!!</p>
+
+
+<!--The follwoning code is traditional way-->
+<p class="mySuccess">This is Normal way of Applying class</p>
+<!--Here mySuccess is a propert in component class
+which refers to a value wch is css class name defind in .css file
+of this component
+-->
+<p [class]="mySuccessClass">This is class binding way using angulay</p>
+
+
+<p [style.color]="success2">Style binding with component value!!</p>
+<input type="button" (click)="change3()" value="Click" [class]="btn">
+<h3>
+  <app-message></app-message>
+</h3>

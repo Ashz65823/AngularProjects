@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+h1{
+    color: rgb(28, 138, 101);
+}
+h2{
+    color: blueviolet;
+}
+h3{
+    color: crimson;
+}
+p{
+    font-size: x-large;
+    color: darkblue;
+}
+.mySuccess{
+    color: rgb(139, 61, 87);
+    font-size: xx-large;
+    font-style: italic;
+}

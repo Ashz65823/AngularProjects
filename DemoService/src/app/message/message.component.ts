@@ -1,6 +1,7 @@
 import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Message } from 'src/model/Message';//to make this avaiale here we writting export in model.ts file
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-message',
@@ -8,39 +9,20 @@ import { Message } from 'src/model/Message';//to make this avaiale here we writt
   styleUrls: ['./message.component.css']
 })
 export class MessageComponent implements OnInit {
-  //messages: string[] = [];//array of string
+ 
 
   messages: Message[] = [];//array of Messages user defind type
-  msg: Message = new Message(104, "Divya");//message is the reference of Message component ->this values a passed a values while calling at message-update.html
+  //constructor is accepting argument-->we have passed default value in message.ts
+  msg:Message=new Message();//accept default value
+  msg2: Message = new Message(104, "Divya");//message is the reference of Message component ->this values a passed a values while calling at message-update.html
+//Use DI to make object of service available in component
+//it is done by simply declaring an argument of service type in constructor
 
-  constructor() {
-    //todo :these data has to be fetched from backend using Springboot rest
-
-    //data: 
-    //Responsiblity of component? - Basic UI building block
-
-
-    //What if same is needed by other component
-    //we can use one service in multiple component
-    let m1 = new Message(101, "Swetha");//Message type
-    let m2 = new Message(102, "Deepa"); //Message type
-    let m3 = new Message(103, "Rama");
-    let m4 = new Message(104, "Priya");
-
-    //let m3="Good Night";//string
-    //let m4="Good Night";//string
-
-//this was of doing is not recommended
-    this.messages.push(m1);//adding data into array of Message type
-    this.messages.push(m2);//adding data into array of Message type
-    this.messages.push(m3);
-    this.messages.push(m4);
-//this was of doing is not recommended
-
-
-    // this.messages.push(m3);//adding string into array-> push is a method to add into array
-    // this.messages.push(m4);//adding string into array-> push is a method to add into array
-
+  updateBtnClick:boolean=false;
+  constructor(private service:DataService) {
+    this.messages=service.getMessages();
+    //data
+    //responsibility of component?- Basic ui buliding block
   }
   getMessages() {
     return this.messages;
@@ -52,12 +34,14 @@ export class MessageComponent implements OnInit {
 
   update(idTobeUpdated: number) {
     //for of loop
+    this.updateBtnClick=true;
     for (const f of this.messages) {//for of gives element value-- for in gives index value
       if(f.id==idTobeUpdated)
       {
         //this.msg=f;
         this.msg=new Message(f.id,f.name);
-        break;
+       break;
+        
       }
     }
   }
@@ -71,6 +55,7 @@ export class MessageComponent implements OnInit {
     for (const msg in this.messages) {//for in loop
       if (messageTobeUpdated.id==this.messages[msg].id) {
         this.messages[msg]=new Message(messageTobeUpdated.id,messageTobeUpdated.name);//this is used to update message
+        this.updateBtnClick=false;
       }
     }
   }

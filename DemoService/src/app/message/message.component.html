@@ -1,5 +1,3 @@
-<h1>In the heading of Message Component</h1>
-<p>message works!</p>
 <p>{{messages|json}}</p>
 <!--Json pipe-->
 <table *ngIf="messages.length>0" border="1">
@@ -9,7 +7,7 @@
     <tr>
         <th>Id</th>
         <th>Name</th>
-        <th>Action</th>
+        <th colspan="2">Action</th>
     </tr>
     <!--ngFor is a directive given by angular
 messages is a property defing in message.component.ts file
@@ -28,15 +26,11 @@ it's a for each loop
     String pipes--lowercase,uppercase, -->
         <td>{{msg.name | uppercase}}</td>
         <td>
-            <input type="button" value="Delete" (click)="delete(msg.id)">&nbsp;<input type="button" value="Update"
-                (click)="update(msg.id)">
+            <input type="button" value="Delete" (click)="delete(msg.id)">
         </td>
-    </tr>
-    <tr>
-        <!--<tr>{{messages}}-- will print all from the array<tr>-->
-        <!--To display single value from array -->
-        <td>{{messages[0].id}}</td>
-        <td>{{messages[0].name|lowercase}}</td>
+        <td>
+            <input type="button" value="Update" (click)="update(msg.id)">
+        </td>
     </tr>
 </table>
 <!--Following line we are passing data from message component to message update component-->
@@ -50,6 +44,7 @@ it's a for each loop
     updateMessage - is present in child class as object of event emitter
 doUpdate()- is present in parent component
 $event - we are passing data to child componet-->
-<app-message-update [message]="msg" (updateMessage)="doUpdate($event)"></app-message-update><!--msg should be same as the reference object of Message component-->
+<app-message-update [message]="msg" (updateMessage)="doUpdate($event)" *ngIf="updateBtnClick"></app-message-update>
+<!--msg should be same as the reference object of Message component-->
 <!--Child of Message component
 becoz we are using <app-message-update></app-message-update> under message.html-->

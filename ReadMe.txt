@@ -56,3 +56,19 @@ ng g c NameOfComponent
    Data from parent to child
 2. Pass data from message update component to message component
    Data from child to parent
+--------------------------------------3/11/2022-----------------------------------------------------
+service
+ng generate service serviceName(messagService)
+			or
+ng g s serviceName(messageService)
+When one or more components need same data we have a service which will have the data in commom and this will inject the data 
+into component..
+This service will take to server fetch data, process and that data is sent to component..This is called Rest End Point
+
+-----Application
+Menu
+Login
+Message
+
+Footer
+These are also components

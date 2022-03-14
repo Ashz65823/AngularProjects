@@ -1,0 +1,50 @@
+<p>{{messages|json}}</p>
+<!--Json pipe-->
+<table *ngIf="messages.length>0" border="1">
+    <!--
+    ngIf is a directive given by angular which is used to show conditially
+-->
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th colspan="2">Action</th>
+    </tr>
+    <!--ngFor is a directive given by angular
+messages is a property defing in message.component.ts file
+msg is an local variable name 
+it's a for each loop
+-->
+    <tr *ngFor="let msg of messages">
+        <!--we dont have repeat tr for each message to display when we use-->
+        <!--when you want to display all value from array -->
+        <!--tr>{{msg}}</tr-->
+        <td>{{msg.id}}</td>
+        <!--Angular pipes-->
+        <!--Angular pipes helps us to transform o/p before showing-->
+        <!--There are many pipes for string,json,currency,number
+        we can also create our own pipes(User defind pipes)
+    String pipes--lowercase,uppercase, -->
+        <td>{{msg.name | uppercase}}</td>
+        <td>
+            <input type="button" value="Delete" (click)="delete(msg.id)">
+        </td>
+        <td>
+            <input type="button" value="Update" (click)="update(msg.id)">
+        </td>
+    </tr>
+</table>
+<!--Following line we are passing data from message component to message update component-->
+<!--Name specified in [] is the name of property defind in child component in our case it message update component-->
+<!--And it must be decoratated with @Input decorator-->
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!--
+    [message]- is present in child component as object of message and it must be decorated with @Input
+--------------------------------------------------------------------------------------------------------------- 
+    message- is present in parent component as object of message and it must be decorated with @Output 
+    updateMessage - is present in child class as object of event emitter
+doUpdate()- is present in parent component
+$event - we are passing data to child componet-->
+<app-message-update [message]="msg" (updateMessage)="doUpdate($event)" *ngIf="updateBtnClick"></app-message-update>
+<!--msg should be same as the reference object of Message component-->
+<!--Child of Message component
+becoz we are using <app-message-update></app-message-update> under message.html-->

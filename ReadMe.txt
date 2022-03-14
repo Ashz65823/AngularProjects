@@ -72,3 +72,19 @@ Message
 
 Footer
 These are also components
+-----------------------------------------------------14/3/2022-------------------------------------
+Routes:- It is to manage navigation in angular app
+ -to use this we need to follow couple of step
+1) Declare an array which tells angular which URL is mapped with which component
+2) Import RouterModule
+3) In app.component.html write following tag
+  <router-outlet></router-outlet>
+
+Templete Driven form
+Validation
+Angular automativally adds css classes to form fields at runtime
+  ng-untoched- if form element is not yet touched(Vistited by mouse or key board)
+  ng-prostine-if value of this is npt yet editted
+  ng-valid -if value of element is valid according to validation rules  we have specified
+
+ng g s service/User--> creates Sevice folder with user.service.ts file

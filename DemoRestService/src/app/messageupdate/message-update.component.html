@@ -1,0 +1,19 @@
+    <table>
+        <tr>
+            <td>
+                <label>Id</label>
+            </td>
+            <td><input type="text" [(ngModel)]="message.id" ></td>
+        </tr>
+        <tr>
+            <td>
+                <label>Name</label>
+            </td>
+            <td><input type="text" [(ngModel)]="message.name"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value="Perform Update" (click)="performUpdate()">
+            </td>
+        </tr>
+    </table>

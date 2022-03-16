@@ -1,4 +1,4 @@
-<p>{{messages|json}}</p>
+<!-- <p>{{messages|json}}</p> -->
 <!--Json pipe-->
 <table *ngIf="messages.length>0" border="1">
     <!--
@@ -32,7 +32,15 @@ it's a for each loop
             <input type="button" value="Update" (click)="update(msg.id)">
         </td>
     </tr>
+    <tr>
+        <th>Add</th>
+        <td colspan="3">
+            <input type="button" value="Add" (click)="add(msg.id,msg.name)" style="width: 100%;">
+        </td>
+    </tr>
+    
 </table>
+{{outputMessage}}
 <!--Following line we are passing data from message component to message update component-->
 <!--Name specified in [] is the name of property defind in child component in our case it message update component-->
 <!--And it must be decoratated with @Input decorator-->

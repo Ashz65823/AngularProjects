@@ -1,0 +1,8 @@
+<form [formGroup]="userForm">
+    <input type="text" formControlName="username" required>
+    <span *ngIf="getUserForm()['username'].invalid && getUserForm()['username'].touched" class="span1">*User Name cannot be empty</span><br>
+    <input type="password" formControlName="password" required>
+    <span *ngIf="getUserForm()['password'].invalid && getUserForm()['password'].touched" class="span1">*Password cannot be empty</span><br>
+    <input type="button" (click)="login()" value="Login" [disabled]="userForm.invalid && userForm.touched">
+    <br>
+</form>

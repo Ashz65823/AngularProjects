@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Message } from 'src/model/Message';
+import { DataService } from '../data.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class MessageUpdateComponent implements OnInit {
   //EventEmitter is imported from @angular/core-- be very careful
   @Output()
   updateMessage:EventEmitter<Message>=new EventEmitter<Message>();
-  constructor() { }
+  constructor(private service: DataService) { }
   performUpdate()
   {
     console.log("Message after updating is")
@@ -32,6 +33,7 @@ export class MessageUpdateComponent implements OnInit {
     //While emitting events we can pass data(in emit()method)
     //emit is publishing and passing data
     this.updateMessage.emit(this.message);
+    
     //To do
     //Pass data from child to parent
     //Parent needs to be bound to this event

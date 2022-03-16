@@ -28,7 +28,7 @@ export class MessageComponent implements OnInit {
     //It is done using subscribe()method
     //here Subscriber function defind how to ,what to do with result
     //here success contains result(Name can be of anything)
-    service.getMessageWithObservales().subscribe(success=>this.messages=success)
+    this.service.getMessageWithObservales().subscribe(success=>this.messages=success)
   //Success is array of messages
   }
   getMessages() {

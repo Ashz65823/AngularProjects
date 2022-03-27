@@ -15,7 +15,7 @@ export class BasicInterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log("In basic Interceptor");
     let basicRequest = req.clone({
-      setHeaders: { Authorization: 'Basic ' + btoa('zensar:zensar123') }
+      setHeaders: { Authorization: 'Basic ' + btoa('zensar:zensar') }
     })
     return next.handle(basicRequest);
   }

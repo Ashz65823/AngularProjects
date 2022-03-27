@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/model/User';
+import { AuthenticationService } from '../service/authentication.service';
 import { UserService } from '../service/user.service';
 
 @Component({
@@ -13,29 +14,25 @@ export class LoginComponent implements OnInit {
 
   //DI (Dependance injecting)
   //Here we are doing DI for userService and router
-  constructor(private service: UserService, private router: Router) {
+  constructor(private service: UserService, private router: Router,private authenticate:AuthenticationService) {
   }
   PerformLogin() {//to see if user name and password match
-    // console.log("User Name is =", this.user.userName);
-    // console.log("Password is =", this.user.password)
     //to check if userName and password is correct
     //by calling service method
-    let result = this.service.checkUser(this.user)
+    this.service.checkUser(this.user).subscribe(response => {
+      let token = response.jwt;
+      console.log(token);
+      //Following statement stores token in sessionStorage of browser
+      this.authenticate.login(token);
+      this.router.navigate(['message']);
+    });
 
     //if result is true show message
     //i.e we want to navigate to other component
-    if (result) {
-      //navigate from here to other component becoz result is true
-      //Hence we need to injuect router in our paths
-      this.router.navigate(['message'])//injecting message component
-    }
-    else {
-      alert("Invalid User name or Password")
-      this.user.userName = '';
-      this.user.password = '';
 
-    }
+    //this.router.navigate(['message'])//injecting message component
   }
+
   ngOnInit(): void {
   }
 

@@ -1,0 +1,21 @@
+<ul id="l1">
+    <li *ngIf="!authentication.isLoggedIn()"><a routerLink="/login">Login</a></li>
+    <li *ngIf="authentication.isLoggedIn()"><a routerLink="/message">Message</a></li>
+    <li><a routerLink="/home">Home</a></li>
+    <li *ngIf="!authentication.isLoggedIn()"><a routerLink="/register">Register</a></li>
+    <li *ngIf="authentication.isLoggedIn()"><a (click)="logout()" routerLink="">LogOut</a></li>
+</ul>
+
+
+<!--Follwoing is the traditiona way and MUST not be used while working with Angular
+    href should not be used its bad
+    routerLink will not load the page for each link to redirect
+    href will load the page each time when we click on the link
+
+    <ul id="l1">
+<li><a href="/login">Login</a></li>
+<li><a href="/message">Message</a></li>
+<li><a href="/home">Home</a></li>
+<li><a href="">LogOut</a></li>
+</ul>
+-->

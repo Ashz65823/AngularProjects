@@ -88,3 +88,29 @@ Angular automativally adds css classes to form fields at runtime
   ng-valid -if value of element is valid according to validation rules  we have specified
 
 ng g s service/User--> creates Sevice folder with user.service.ts file
+-------------------------------------------17/3/2022---------------------------------
+Htyp Status code
+It is must to return appropriate Status code from Server App to Client App
+
+2xx     Sucess
+200     Ok
+201     Created
+204     No content- delete
+
+4XX     Are Client Error
+400     Bad Request(Validation rules are failed)
+404     Not found
+401     Unauthorized(Wrong Credentials)
+403     Forbidden (Don't have access to a resource)
+
+5xx     Server Errors
+500     Internal Server Error
+--------------------------------------------------------------------------------
+To deploy Angular project we should conver ts file into javaScript
+-for this following steps should be taken
+1 ng build
+2 A new folder dist will be Created this will have js,html,stylesheet file 
+The dist folder the folder which is used at the time of deployment
+
+
+

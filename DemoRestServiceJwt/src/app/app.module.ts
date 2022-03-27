@@ -12,8 +12,9 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { BasicInterceptorService } from './basic-interceptor.service';
+
 import { AuthguardService } from './authguard.service';
+import { JwtInterceptorService } from './jwt-interceptor.service';
 //url -Some component should be shown
 //message -
 // login
@@ -62,7 +63,7 @@ const routes: Routes = [//routes variable name--Routes type of variable
     RouterModule.forRoot(routes),//This model is responsible for routing
     HttpClientModule //this module is responsible for making http client
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: BasicInterceptorService, multi: true }],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

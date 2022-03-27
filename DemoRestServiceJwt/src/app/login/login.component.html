@@ -21,8 +21,8 @@ Angular automativally adds css classes to form fields at runtime
         <tr>
             <td style="padding: 0.3cm;">User Name</td>
             <td style="padding: 0.3cm;">
-                <input #nameField="ngModel" type="text" value="" [(ngModel)]="user.userName" name="userName"
-                    placeholder="UserName" required >
+                <input #nameField="ngModel" type="text" [(ngModel)]="user.userName" name="userName"
+                    placeholder="UserName" required>
             </td>
             <td>
                 <span *ngIf="nameField.invalid && nameField.touched" style="color: red;">*User name is mandatory</span>
@@ -37,7 +37,7 @@ Angular automativally adds css classes to form fields at runtime
                 >The [(ngModel)] is setting two way binding on the elements value and 
                 assigning that to a variable.
                 -->
-                <input #nameField2="ngModel" type="password" value="" [(ngModel)]="user.password" name="password"
+                <input #nameField2="ngModel" type="password" [(ngModel)]="user.password" name="password"
                     placeholder="Password" required>
             </td>
             <td>
@@ -46,7 +46,7 @@ Angular automativally adds css classes to form fields at runtime
         </tr>
         <tr>
             <td colspan="2" style="padding: 0.5cm;">
-                <input type="button" value="Login" (click)="PerformLogin()" [disabled]="visible.invalid" >
+                <input type="button" value="Login" (click)="PerformLogin()" [disabled]="visible.invalid">
             </td>
         </tr>
     </table>

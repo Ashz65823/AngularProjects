@@ -1,0 +1,21 @@
+package com.zensar.displayservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
+@SpringBootApplication
+/**
+ * 
+ * @author AA65823
+ *	Following annotation eureka server
+ * @EnableEurekaClient -This os Must on top of class acting as Eureka Server
+ */
+@EnableEurekaClient
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+
+}

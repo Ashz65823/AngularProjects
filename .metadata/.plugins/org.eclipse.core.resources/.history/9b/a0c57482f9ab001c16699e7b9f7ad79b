@@ -1,0 +1,5 @@
+package com.zensar.displayservice.Rest.Service;
+
+public class MessageServiceImpl {
+
+}

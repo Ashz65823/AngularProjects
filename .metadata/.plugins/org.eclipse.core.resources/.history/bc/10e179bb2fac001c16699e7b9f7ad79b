@@ -1,0 +1,35 @@
+package com.zensar.displayservice.feign.client;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+/**
+ * 
+ * @author AA65823
+ * here @FeignClient(value="messageservice")
+ * value is name of microservice as registered with eureka 
+ */
+@FeignClient(value="messageservice")
+public interface MessageServiceFeignClient {
+	/*-------------My comment----------------------
+	 * This message signature is from MessageRestController
+	 * public String getMessage()-->this is the message name in MessageRestController
+	 * The signature of method is impotent not the method name*/
+	/**
+	 * -----------Sir Comment----------
+	 * Following method signature MUST match with the signature of service method we are interested in calling
+	 * In out case method signature Must match with MssageRestController -generateMessage() method
+	 * 
+	 * Following method can be named anything
+	 * URL pattern written here must be URL pattern of generateMessage() method
+	 * @param string 
+	 */
+	
+	//String response=rest.getForObject("http://localhost:8085/api/message",String.class);
+	@GetMapping("/api/message")
+	public String callMessage();
+	
+	@GetMapping("/api/message/view/{m}")
+	public String callMessage2(String string);
+
+}

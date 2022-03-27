@@ -1,0 +1,4 @@
+#It is not mandate that eureka runs on port 8761 
+#But it is recommended because by deafult eureka client apllication assume that server is running on 8761
+#Hence 8761 is recommended port for Eureka Server
+server.port=9090

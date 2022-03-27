@@ -1,0 +1,20 @@
+package com.zensar.displayservice.feign.client;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+public interface MessageServiceFeignClient {
+	/*-------------My comment----------------------
+	 * This message signature is from MessageRestController
+	 * public String getMessage()-->this is the message name in MessageRestController
+	 * The signature of method is impotent not the method name*/
+	/**
+	 * -----------Sir Comment----------
+	 * Following method signature MUST match with the signature of service method we are interested in calling
+	 * In out case method signature Must match with MssageRestController -getMessage() method
+	 * 
+	 * Following method can be named anything
+	 * URL pattern written here must be URL pattern of getMessage() method
+	 */
+	@GetMapping("/api/message")
+	public String callMessage();
+}

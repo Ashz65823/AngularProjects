@@ -1,0 +1,10 @@
+﻿Service : Message Service
+port No : 8085
+
+Service : DisplayService
+port No : 8086
+
+
+Service : EureakServer
+port No : 8761
+

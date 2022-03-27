@@ -1,0 +1,4 @@
+server.port=8086
+spring.application.name=displayservice
+
+eureka.client.eureka-service-url.defaultZone="http://localhost:8762/eureka

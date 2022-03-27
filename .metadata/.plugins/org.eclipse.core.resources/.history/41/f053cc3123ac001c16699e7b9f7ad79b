@@ -1,0 +1,40 @@
+package com.zensar.displayservice.Rest.Service;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+@RestController
+public class DisplayRestController {
+	
+	RestTemplate rest=new RestTemplate();
+	
+	@GetMapping("/api/display")
+	public String display()
+	{
+		/*
+		 * The following call we are hard cording IP and port of message service
+		 * If message service is deployed on other service(different IP)
+		 * This code is affected,bad idea
+		 * We need a solution by which we can identify micro-service with some "unique name"
+		 * Instead of IP and Port we will use "unique name"
+		 * we have to register every micro-service  with some unique name... But where?
+		 * Spring cloud gives you a solution -Eureka (Registry Service)
+		 * */
+		
+		//In order to simplify REST call by using micro Services application name and avoid using IP and port 
+		//Spring cloud give one solution known as 
+		//Open feign
+		
+		//Steps to use open feign
+		/*
+		 * Add dependency in pom.xml in display servic(Because it use rest)
+		 * 
+		 * */
+		String responce=rest.getForObject("http://localhost:8085/api/message",String.class);
+		System.out.println("Display");
+		return "Message from Message service is"+responce;
+	}
+	
+
+}

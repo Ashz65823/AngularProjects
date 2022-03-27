@@ -1,0 +1,9 @@
+package com.zensar.displayservice.feign.client;
+
+public interface MessageServiceFeignClient {
+	
+	/*
+	 * This message signature is from MessageRestController
+	 * The signature of method is impotent not the method name*/
+	public String callMessage();
+}

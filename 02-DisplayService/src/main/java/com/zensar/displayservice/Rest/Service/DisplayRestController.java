@@ -1,6 +1,8 @@
 package com.zensar.displayservice.Rest.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,8 +12,12 @@ import com.zensar.displayservice.feign.client.MessageServiceFeignClient;
 import com.zensar.displayservice.service.impl.DisplayServiceImpl;
 
 @RestController
+@RefreshScope
 public class DisplayRestController {
 
+	@Value("${organisation}")
+	private String company;
+	
 	@Autowired
 	private DisplayServiceImpl service;
 
@@ -42,7 +48,7 @@ public class DisplayRestController {
 		
 		String responce=service.fetchData();
 		System.out.println("Display Message " + responce);
-		return "Message from Message service is " + responce;
+		return "Message from Message service is " + responce+" "+this.company;
 	}
 
 	/*

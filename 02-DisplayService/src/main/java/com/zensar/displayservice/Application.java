@@ -16,7 +16,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * 		-Otherwise feign won't work
  */
 @EnableEurekaClient
-@EnableFeignClients
+//It must be on top of Feign Client
+@EnableFeignClients(basePackages={"com.zensar.displayservice.feign.client"})
 public class Application {
 
 	public static void main(String[] args) {

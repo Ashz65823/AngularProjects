@@ -8,3 +8,12 @@ port No : 8086
 Service : EureakServer
 port No : 8761
 
+
+Service : apigateway
+portNo : 9090
+
+Service : Zipkin
+portNo : 9411
+
+Service : configserver 
+portNo : 8888
